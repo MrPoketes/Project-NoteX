@@ -1,26 +1,56 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Layout } from '../components/Layout/Layout';
 import { Card } from '../components/Card/Card';
-import { DragDropContext } from 'react-beautiful-dnd';
 
 export default function Home() {
 	const cardData = [
-		{ title: 'First', data: ['Hello', 'World'], label: '' },
-		{ title: 'Second', data: ['Hello', 'World', 'Yes'], label: '' },
-		{ title: 'Third', data: ['Hello', 'World', 'Huh'], label: '' },
-		{ title: 'Fourth', data: ['Hello', 'World', 'S', 'Yo', 'Good'], label: '' }
+		{
+			title: 'First',
+			data: [
+				{ itemLabel: '', itemText: 'Hello' },
+				{ itemLabel: '', itemText: 'World' }
+			]
+		},
+		{
+			title: 'Second',
+			data: [
+				{ itemLabel: '', itemText: 'Hello' },
+				{ itemLabel: '', itemText: 'World' },
+				{ itemLabel: '', itemText: 'Yes' }
+			]
+		},
+		{
+			title: 'Third',
+			data: [
+				{ itemLabel: '', itemText: 'Hello' },
+				{ itemLabel: '', itemText: 'World' },
+				{ itemLabel: '', itemText: 'Huh' }
+			]
+		},
+		{
+			title: 'Fourth',
+			data: [
+				{ itemLabel: '', itemText: 'Hello' },
+				{ itemLabel: '', itemText: 'World' },
+				{ itemLabel: '', itemText: 'YoYoYo' },
+				{ itemLabel: '', itemText: 'Good' },
+				{ itemLabel: '', itemText: 'A good quote' }
+			]
+		}
 	];
+	const [winReady, setWinReady] = useState(false);
+	useEffect(() => {
+		setWinReady(true);
+	}, []);
 	return (
 		<Layout>
-			{cardData.map((data, i) => (
-				<Card
-					key={i}
-					title={data.title}
-					data={data.data}
-					index={i}
-					label={data.label}
-				/>
-			))}
+			{winReady ? (
+				<>
+					{cardData.map((data, i) => (
+						<Card key={i} title={data.title} data={data.data} index={i} />
+					))}
+				</>
+			) : null}
 		</Layout>
 	);
 }

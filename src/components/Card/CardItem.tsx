@@ -4,19 +4,24 @@ import { Draggable } from 'react-beautiful-dnd';
 interface CardItemInterface {
 	text: string;
 	index: number;
+	draggableId: any;
 }
 export const CardItem: React.FC<CardItemInterface> = props => {
 	return (
-		<Draggable index={props.index} draggableId={props.index}>
+		<Draggable
+			key={props.draggableId}
+			draggableId={props.draggableId.toString()}
+			index={props.draggableId}
+		>
 			{provided => (
-				<li
+				<div
 					ref={provided.innerRef}
 					{...provided.draggableProps}
 					{...provided.dragHandleProps}
 					className="bg-white my-2"
 				>
 					<EditableText className="ml-2">{props.text}</EditableText>
-				</li>
+				</div>
 			)}
 		</Draggable>
 	);

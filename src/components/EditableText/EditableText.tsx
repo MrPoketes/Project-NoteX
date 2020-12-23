@@ -41,7 +41,7 @@ export const EditableText: React.FC<EditableInterface> = props => {
 			return (
 				<div>
 					<input
-						className={`${props.className} ${inputStyles}`}
+						className={`${props.className} ${inputStyles} py-2`}
 						type="text"
 						value={text}
 						onChange={event => handleTextChange(event)}
@@ -67,7 +67,7 @@ export const EditableText: React.FC<EditableInterface> = props => {
 			);
 		}
 	}
-	const paddingLi = text === '' ? 'py-5' : 'py-2';
+	const paddingLi = text === '' ? 'py-4' : 'py-2';
 
 	return (
 		<div className={`w-full ${paddingLi}`} onClick={() => changeEdit(true)}>
