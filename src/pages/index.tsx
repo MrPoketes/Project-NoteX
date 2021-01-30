@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Layout } from '../components/Layout/Layout';
 import { Card } from '../components/Card/Card';
+import { Button } from '../components/Button/Button';
 
 export default function Home() {
 	const cardData = [
@@ -39,9 +40,11 @@ export default function Home() {
 		}
 	];
 	const [winReady, setWinReady] = useState(false);
+
 	useEffect(() => {
 		setWinReady(true);
 	}, []);
+
 	return (
 		<Layout>
 			{winReady ? (

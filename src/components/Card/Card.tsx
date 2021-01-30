@@ -1,17 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Button } from '../Button/Button';
 import { CardItem } from './CardItem';
 import { EditableText } from '../EditableText/EditableText';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
-interface CardInterface {
-	title: string;
-	data: CardDataInterface[];
-	index: number;
-}
-interface CardDataInterface {
-	itemLabel: string;
-	itemText: string;
-}
+import { CardInterface, CardDataInterface } from './CardInterface';
+
 export const Card: React.FC<CardInterface> = props => {
 	/**
 	 * @param cardItems type CardDataInterface[]
@@ -75,7 +68,9 @@ export const Card: React.FC<CardInterface> = props => {
 							</div>
 						)}
 					</Droppable>
-					<Button onClick={() => handleAddItem()}>Add card</Button>
+					<Button type="text" color="gray" onClick={() => handleAddItem()}>
+						Add card
+					</Button>
 				</div>
 			</div>
 		</DragDropContext>

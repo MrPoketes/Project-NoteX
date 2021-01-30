@@ -1,10 +1,6 @@
 import React, { KeyboardEvent, FormEvent, useState } from 'react';
+import { EditableInterface } from './EditableTextInterface';
 
-interface EditableInterface {
-	children: string;
-	className: string;
-	isTitle?: boolean;
-}
 export const EditableText: React.FC<EditableInterface> = props => {
 	/**
 	 *
